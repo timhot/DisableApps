@@ -13,13 +13,38 @@
         android:layout_height="?attr/actionBarSize"
        />
 
+    <TextView
+        android:id="@+id/appNameVersionText"
+        android:layout_below="@id/my_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+        />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_below="@id/appNameVersionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Press the button to view apps that are currently enabled" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_below="@id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apps can only be disabled if this app has been installed as a system app on a rooted phone" />
+
     <Button
         android:id="@+id/btnDisplayPowerUsage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
         android:onClick="displayPowerButtonClicked"
-        android:text="Display Power" />
+        android:text="View Enabled Apps on this Phone" />
+
+
+
+
 </RelativeLayout>

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.R.style.Widget;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
@@ -14,10 +15,10 @@ public class AppsToDisable {
 
     private static final String[] appsToDisable = {
 
-            "com.android.noisefield",
+            "com.android.noisefield", // Bubbles
             "com.android.galaxy4",
             "com.android.browser",
-            "com.android.calculator2",
+            "com.android.calculator2", // Calculator
             "com.android.calendar",
             "com.android.chrome",
             "com.android.contacts",
@@ -26,30 +27,30 @@ public class AppsToDisable {
             "com.android.gallery3d",
             "com.android.mms",
             "com.android.musicfx",
-            "com.android.musicvis",
+            "com.android.musicvis", //Music Visualization Wallpapers
             "com.android.exchange",
             "com.android.email",
             "com.android.providers.calendar",
             "com.android.systemui",
-            "com.android.vending",
-            "com.android.videoeditor",
+            "com.android.vending", // Google Play Store
+            "com.android.videoeditor", // Movie Studio
             "com.google.android.apps.books",
             "com.google.android.apps.magazines",
-            "com.google.android.apps.plus",
+            "com.google.android.apps.plus", //Google+
             "com.google.android.apps.uploader",
-            "com.google.android.gm",
+            "com.google.android.gm", // Gmail
             "com.google.android.gms",
-            "com.google.android.googlequicksearchbox",
+            "com.google.android.googlequicksearchbox", //Google
             "com.google.android.gsf.login",
-            "com.google.android.partnersetup",
+            "com.google.android.partnersetup", // Google Partner Setup
             "com.google.android.play.games",
             "com.mediatek.videoplayer",
             "com.google.android.videos",
-            "com.google.android.music",
+            "com.google.android.music", // Music
             "com.google.android.syncadapters.calendar",
             "com.google.android.syncadapters.contacts",
             "com.google.android.talk",
-            "com.google.android.youtube",
+            "com.google.android.youtube", // YouTube
             "com.gtarcade.lod",
             "com.huawei.android.hwouc",
             "com.huawei.android.totemweather",
@@ -71,14 +72,11 @@ public class AppsToDisable {
             "com.mediatek.FMRadio",
             "com.android.music",
             "com.mediatek.videoplayer",
-            "com.android.magicsmoke",
+            "com.android.magicsmoke", // Magic Smoke Wallpapers
             "com.google.android.street",
             "com.sec.android.provider.smemo",
             "com.android.calendar",
             "com.sec.android.widgetapp.diotek.smemo",
-
-
-
             "com.tgrape.android.radar",
             "com.vlingo.midas",
             "com.sec.android.app.samsungapps",
@@ -91,21 +89,15 @@ public class AppsToDisable {
             "com.sec.android.app.popupcalculator",
             "com.sec.android.app.camera",
             "com.sec.chaton",
-
-
-
-
-
-
             "com.android.facelock",
             "com.android.providers.contacts",
             "com.android.wallpaper.livepicker",
             "com.google.android.backup",
-            "com.google.android.feedback",
+            "com.google.android.feedback", // Market Feedback Agent
             "com.google.android.marvin.talkback",
             "com.google.android.syncadapters.bookmarks",
             "com.google.android.tts",
-            "com.google.android.voicesearch",
+            "com.google.android.voicesearch", //com.google.android.voicesearch
             "com.infraware.polarisviewer4",
             "com.lifevibes.trimapp",
             "com.osp.app.signin",
@@ -136,9 +128,6 @@ public class AppsToDisable {
             "com.sec.hearingadjust",
             "com.sec.spp.push",
             "com.siso.photoWall",
-
-
-
             "com.sec.android.sCloudRelayData",
             "com.sec.spp.push",
             "com.broadcom.bms",
@@ -152,9 +141,6 @@ public class AppsToDisable {
             "com.sec.android.app.fm",
             "com.sec.android.app.gamehub",
             "flipboard.app",
-
-            // those above here are safe
-
             "com.sec.android.widgetapp.digitalclock",
             "com.sec.android.widgetapp.analogclocksimple",
             "com.sec.android.widgetapp.analogclockunique",
@@ -190,12 +176,12 @@ public class AppsToDisable {
             "com.sec.android.app.controlpanel",
             "com.sec.android.app",
             "com.samsung.android.livewallpaper.luminousdots",
-            "com.google.android.apps.maps",
+            "com.google.android.apps.maps", // Maps
             "com.samsung.music",
             "com.sec.android.app.mobileprint",
             "com.sec.android.app.myfiles",
             "com.android.noisefield",
-            "com.android.phasebeam",
+            "com.android.phasebeam", // Phase Beam
             "com.siso.photoWall",
             "com.android.pickuptutorial",
             "com.infraware.polarisviewer4",
@@ -214,7 +200,7 @@ public class AppsToDisable {
             "com.android.calendar",
             "com.android.providers.downloads.ui",
             "com.android.email",
-            "com.android.htmlviewer",
+            "com.android.htmlviewer", //HTML Viewer
             "com.android.wallpaper.livepicker",
             "com.sec.android.widgetapp.deotek.smemo",
             "com.sec.android.provider.smemo",
@@ -223,9 +209,9 @@ public class AppsToDisable {
             "com.sec.spp.push",
             "com.tgrape.android.radar",
             "com.android.stk",
-            "com.google.android.street",
-            "com.google.android.talk",
-            "com.google.android.marvin.talkback",
+            "com.google.android.street", // Street View
+            "com.google.android.talk", // Hangouts
+            "com.google.android.marvin.talkback", //TalkBack
             "com.siso.topicWall",
             "com.lifevibes.trimapp",
             "com.samsung.videohub",
@@ -282,7 +268,74 @@ public class AppsToDisable {
 
             // still testing these
             "com.dropbox.android",
-            "com.sec.dropbox.android.cloudagent.dropboxoobe"
+            "com.sec.dropbox.android.cloudagent.dropboxoobe",
+
+            // using the app 'system app remover it said the following can be remove (on Huawei Y300)
+            "com.google.android.inputmethod.latin.dictionarypack", //Dictionary Provider
+            "com.android.protips", // Home screen tips
+            "com.facebook.katana", //Facebook
+            "com.htc.engine.facebook", // Facebook Engine
+            "com.htc.socialnetwork.facebook", // Facebook for HTC Sense
+            "com.htc.flashlight", //Flashlight
+            "com.htc.android.fusion.calculator", // Widget Calculator
+            "com.htc.cloudstorage.dropbox", // Dropbox for HTC Sense
+            "com.htc.dropbox.glrplugin", // HtcDropbox_GLRPlugin
+            "com.htc.engine.flickr", // Flickr Engine
+            "com.htc.socialnetwork.flickr", // Flickr
+            "com.htc.FriendStream3DWidget", // Friend Stream Widget
+            "com.htc.friendstream", // Friend Stream
+            "com.htc.idlescreen.socialnetwork", // Friend Stream Lock screen
+            "com.htc.WeatherWallpaper", // Weather Wallpaper
+            "com.htc.picasa", // Picasa Web Albums
+            "com.infraware.docmaster", // Polaris Office
+            "com.htc.android.image_wallpaper", // Slide show Live wallpaper
+            "com.htc.stockwidget", // Stock Widget
+            "com.htc.stockidlescreen", // Stocks Lock screen
+            "com.htc.android.teeter", // Teeter
+            "com.htc.Trends3DWidget", // Trends Widget
+            "com.htc.Twitter3DWidget", // Twitter Widget
+            "com.htc.engine.twitter", // Twitter Engine
+            "com.htc.htctwitter", // Twitter for HTC Sense
+            "com.twitter.android", // Twitter
+            // using the app 'system app remover it said the following can be remove (on ZTE R88OH)
+            // nothing new
+
+            // DisableApps (this app) shows the following running on ZTE R88OH so will disable them
+            "com.cootek.smartinputv5.language.arabic", // TouchPal Arabic Language Pack
+            "com.cootek.smartinputv5.language.cangjie", // TouchPal Cangjie Language Pack
+            "com.cootek.smartinputv5.language.chs", // TouchPal CHS Language Pack
+            "com.cootek.smartinputv5.language.chs.handwrite", // TouchPal HandWrite Language Pack
+            "com.cootek.smartinputv5.language.french", // TouchPal French Language Pack
+            "com.cootek.smartinputv5.language.portuguesebr", // TouchPal Brazilian Portuguese Language Pack
+            "com.cootek.smartinputv5.language.portuguesept", // TouchPal Portuguese Language Pack
+            "com.cootek.smartinputv5.language.russian", // TouchPal Russian Language Pack
+            "com.cootek.smartinputv5.language.spanish", // TouchPal Spanish Language Pack
+
+            // DisableApps (this app) shows the following running on ZTE R88OH so will disable them
+            "com.huawei.inputmethod.language.arabian", // HwIME Arabic Language Pack /system/app/ArabicPack.apk
+            "com.huawei.inputmethod.language.czech", // HwIME Czech Language Pack /system/app/CzechPack.apk
+            "com.huawei.inputmethod.language.dutch", // HwIME Dutch Language Pack /system/app/DutchPack.apk
+            "com.huawei.inputmethod.language.farsi", // HwIME Farsi Language Pack /system/app/FarsiPack.apk
+            "com.huawei.inputmethod.language.french", // HwIME French Language Pack /system/app/FrenchPack.apk
+            "com.huawei.inputmethod.language.german", // HwIME German Language Pack /system/app/GermanPack.apk
+            "com.huawei.inputmethod.language.greek", // HwIME Greek Language Pack /system/app/GreekPack.apk
+            "com.huawei.inputmethod.language.hungarian", // HwIME Hungarian Language Pack /system/app/HungarianPack.apk
+            "com.huawei.inputmethod.language.indonesian", // HwIME Indonesian Language Pack /system/app/IndonesianPack.apk
+            "com.huawei.inputmethod.language.italian", // HwIME Italian Language Pack /system/app/ItalianPack.apk
+            "com.huawei.inputmethod.language.korean", // HwIME Korean Language Pack /system/app/KoreanPack.apk
+            "com.huawei.inputmethod.language.malay", // HwIME Malay Language Pack /system/app/MalayPack.apk
+            "com.huawei.inputmethod.language.pinyin", // HwIME Pinyin Pack /system/app/PinyinPack.apk
+            "com.huawei.inputmethod.language.portuguese", //HwIME Portuguese Language Pack /system/app/PortuguesePack.apk
+            "com.huawei.inputmethod.language.romanian", // HwIME Romanian Language Pack /system/app/RomanianPack.apk
+            "com.huawei.inputmethod.language.russian", // HwIME Russian Language Pack /system/app/RussianPack.apk
+            "com.huawei.inputmethod.language.spanish", // HwIME Spanish language Pack /system/app/SpanishPack.apk
+            "com.huawei.inputmethod.language.thai", // HwIME Thailand Language Pack /system/app/ThaiPack.apk
+            "com.huawei.inputmethod.language.turkish", // HwIME Turkish Language Pack /system/app/TurkishPack.apk
+            "com.huawei.inputmethod.language.ukrainian", // HwIME Ukrainian Language Pack /system/app/UkrainianPack.apk
+            "com.huawei.inputmethod.language.vietnamese", // HwIME Vietnamese Language Pack /system/app/VietnamesePack.apk
+            "com.huawei.inputmethod.language.zhuyin", // HwIME Zhuyin Language Pack /system/app/ZhuyinPack.apk
+
+
     };
 
     private static final String[] appsToNotDisable = { // use this list as check in case add an app to disable list that has already been shown to cause phone to crash etc
@@ -323,37 +376,37 @@ public class AppsToDisable {
             "com.android.systemui",
 
             //https://stackoverflow.com/questions/26725872/what-can-com-sec-android-app-launcher-be-used-for
-            "com.sec.android.app.launcher"
+            "com.sec.android.app.launcher",
             // I manually disabled the following app (called Huawei Home) and the Huawei Y300-0151 then failed to get past telecom screeen at boot up - did factory reset
             "com.huawei.android.launcher",
 
             // using the app 'system app remover it said the following are key modules (on Huawei Y300)
-            Wi-Fi Hotspot
-            TooBox
-            Themes
-            System Update
-            SmartcardService
-            RecordService
-            ProjectMenuAct
-            Profiles
-            Notes
-            Music
-            MMI Test II
-            Import via Bluetooth
-            Huawei Inpupt Method
-            Help Center
-            Gallery
-            FM Radio
-            Flashlight
-            File Manager
-            DLNA
-            Contacts Extension
-            com.android.wallpaper.holospiral
-            com.android.sharedstoragebackup
-            backupconfirm
-            Backup
-            AppInstaller
-            androidhwext
+//            Wi-Fi Hotspot
+//            TooBox
+//            Themes
+//            System Update
+//            SmartcardService
+//            RecordService
+//            ProjectMenuAct
+//            Profiles
+//            Notes
+//            Music
+//            MMI Test II
+//            Import via Bluetooth
+//            Huawei Inpupt Method
+//            Help Center
+//            Gallery
+//            FM Radio
+//            Flashlight
+//            File Manager
+//            DLNA
+//            Contacts Extension
+//            com.android.wallpaper.holospiral
+//            com.android.sharedstoragebackup
+//            backupconfirm
+//            Backup
+//            AppInstaller
+//            androidhwext
 
     };
 

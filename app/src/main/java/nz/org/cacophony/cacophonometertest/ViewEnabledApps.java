@@ -15,12 +15,13 @@ import android.widget.ArrayAdapter;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ViewPowerActivity2 extends AppCompatActivity {
+public class ViewEnabledApps extends AppCompatActivity {
 
     String logTag = "caco";
 
@@ -37,7 +38,7 @@ public class ViewPowerActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_power2);
+        setContentView(R.layout.activity_view_enabled_apps);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -49,13 +50,18 @@ public class ViewPowerActivity2 extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         if (mListView == null) {
-            mListView = (ListView) findViewById(R.id.listDemo);
+            mListView = (ListView) findViewById(R.id.listEnabledApps);
         }
 
         adapter=new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,
                 listItems);
         setListAdapter(adapter);
+    }
+
+    public void onResume() {
+        super.onResume();
+        getInstalledApps(false);
     }
 
     //METHOD WHICH WILL HANDLE DYNAMIC INSERTION
@@ -66,7 +72,7 @@ public class ViewPowerActivity2 extends AppCompatActivity {
 
     protected ListView getListView() {
         if (mListView == null) {
-            mListView = (ListView) findViewById(R.id.listDemo);
+            mListView = (ListView) findViewById(R.id.listEnabledApps);
         }
         return mListView;
     }
@@ -83,10 +89,10 @@ public class ViewPowerActivity2 extends AppCompatActivity {
             return adapter;
         }
     }
-    public void btnAddItemClicked(@SuppressWarnings("UnusedParameters") View v) {
+    public void btnDisableApps(@SuppressWarnings("UnusedParameters") View v) {
       //  listItems.add("Clicked : "+clickCounter++);
        //getRunningProcess();
-        getInstalledApps();
+        getInstalledApps(true);
     }
 
     private void getRunningProcess(){
@@ -102,44 +108,45 @@ public class ViewPowerActivity2 extends AppCompatActivity {
         setListAdapter(adapter);
     }
 
-    private void getInstalledApps(){
+    private void getInstalledApps(boolean disable){
+        int numberOfAppsSuccessfullyDisabled = 0;
+
         PackageManager pm = getPackageManager();
         List<ApplicationInfo> apps = pm.getInstalledApplications(0);
 
         listItems.clear();
         for (ApplicationInfo appInfo: apps){
             String packageName = appInfo.packageName;
+            String apkName = appInfo.sourceDir;
             int packageEnabledSetting = pm.getApplicationEnabledSetting(packageName);
             if (packageEnabledSetting == PackageManager.COMPONENT_ENABLED_STATE_DISABLED || packageEnabledSetting == PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER){
                 continue; // only interested in apps that have not been disabled
             }
-//            boolean disabled = packageEnabledSetting == PackageManager.COMPONENT_ENABLED_STATE_DISABLED ? true : false;
 
             final String applicationName = (String) (appInfo != null ? pm.getApplicationLabel(appInfo) : "(unknown)");
 
-         //   Log.e("applicationName is ", applicationName + " packageEnabledSetting " +  String.valueOf(packageEnabledSetting));
+            Log.e(logTag, Integer.toString(pm.getApplicationEnabledSetting(appInfo.packageName)) + " " + packageName + " " + applicationName + " " + apkName);
+
+                if (AppsToDisable.isThisAnAppToDisable(packageName) && disable) {
 
 
-//            Log.d("sourceDir is ", appInfo.sourceDir);
-            Log.e(logTag, Integer.toString(pm.getApplicationEnabledSetting(appInfo.packageName)) + " " + applicationName + " " + packageName );
-          //  if( applicationName.equalsIgnoreCase("Bubbles")) {
-                if (AppsToDisable.isThisAnAppToDisable(packageName)) {
-
-                //    Log.e(logTag, "App is Bubbles");
                     if ((packageEnabledSetting == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT) || packageEnabledSetting == PackageManager.COMPONENT_ENABLED_STATE_ENABLED) {
                         Log.e(logTag, "EnabledSetting is enabled and setting is " + String.valueOf(packageEnabledSetting));
 
                         try {
                             pm.setApplicationEnabledSetting(packageName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 0);
                             Log.e(logTag, "tried to setApplicationEnabledSetting to disabled state ");
+
                             packageEnabledSetting = pm.getApplicationEnabledSetting(packageName);
                             Log.e(logTag, "EnabledSetting is now " + String.valueOf(packageEnabledSetting));
+                            numberOfAppsSuccessfullyDisabled++;
                         } catch (Exception ex) {
                             Log.e(logTag, ex.getLocalizedMessage());
                             try {
                                 pm.setApplicationEnabledSetting(packageName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, 0);
                                 packageEnabledSetting = pm.getApplicationEnabledSetting(packageName);
                                 Log.e(logTag, "EnabledSetting is now " + String.valueOf(packageEnabledSetting));
+                                numberOfAppsSuccessfullyDisabled++;
                             } catch (Exception e) {
                                 Log.e(logTag, e.getLocalizedMessage());
                             }
@@ -150,11 +157,24 @@ public class ViewPowerActivity2 extends AppCompatActivity {
                     }
 
                 }
-                listItems.add(applicationName + " EnabledSetting " + String.valueOf(packageEnabledSetting));
-         //   }
+//                listItems.add(applicationName + " EnabledSetting " + String.valueOf(packageEnabledSetting));
+            //listItems.add(applicationName );
+            listItems.add(packageName + " " + applicationName + " " + apkName );
+
         }
         Collections.sort(listItems);
         setListAdapter(adapter);
+if (disable){
+    Context context = getApplicationContext();
+    CharSequence text = numberOfAppsSuccessfullyDisabled + " Apps were disabled";
+    int duration = Toast.LENGTH_LONG;
+
+    Toast toast = Toast.makeText(context, text, duration);
+    toast.show();
+}
+
     }
+
+
 
 }

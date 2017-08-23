@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">DisableApps</string>
+    <string name="app_name">Disable Apps</string>
     <string name="title_activity_view_power">ViewPowerActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_view_power2">ViewPowerActivity2</string>
+    <string name="title_activity_view_power2">Enabled Apps</string>
+    <string name="version">Version ID</string>
 </resources>

@@ -4,12 +4,12 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "nz.org.cacophony.cacophonometertest"
+        applicationId "nz.org.cacophony.disableapps"
         minSdkVersion 9
         targetSdkVersion 25
         versionCode 1
-        versionName "1.29"
-        archivesBaseName = "CacoTest-$versionName"
+        versionName "0.03"
+        archivesBaseName = "DisableApps-$versionName"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
